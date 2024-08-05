@@ -22,25 +22,23 @@
                 $(".project-description>p").each(function () {
                     const maxChars = 100;
                     let content = $(this).text();
-                    console.log(content);
+                    // console.log(content);
 
-                        if (content.length > maxChars) {
-                            let shownStr = content.substr(0, maxChars);
-                            let hiddenStr = content.substr(maxChars - content.length);
-                            let html = `${shownStr}<span class="truncated">... </span><span class="truncated" style="display:none">${hiddenStr}</span><a class="read-more" href="#">Read more</a>`;
-                            $(this).empty().append(html);
-                        }
-                    })
+                    if (content.length > maxChars) {
+                        let shownStr = content.substr(0, maxChars);
+                        let hiddenStr = content.substr(maxChars - content.length);
+                        let html = `${shownStr}<span class="truncated">... </span><span class="truncated" style="display:none">${hiddenStr}</span><a class="read-more" href="">Read more</a>`;
+                        $(this).empty().append(html);
+                    }
+                });
 
-                    $(".read-more").click(function (e) {
-                        e.preventDefault();
-                        if ($(".read-more").text() == "Read more") {
-                            $(".read-more").innerText("Read less");
-                        }
-                        // $(".read-more").text() == "Read more"
-                        //     ? $(".read-more").text("Read less")
-                        //     : $(".read-more").text("Read more");
-                        $(".readMore .truncated ").toggle();
+                $(".read-more").click(function (e) {
+                    e.preventDefault();
+                    if ($(".read-more").text() == "Read more") {
+                        $(".read-more").text("Read less");
+                        console.log($(".read-more").text())
+                    }
+                    $(".readMore .truncated ").toggle();
                 });
             });
         </script>
