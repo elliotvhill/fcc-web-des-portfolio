@@ -1,7 +1,57 @@
+@media (prefers-reduced-motion: no-preference) {
+    * {
+        scroll-behavior: smooth;
+    }
+}
+
+:root {
+    /* COLOR SCHEME OPTION 1 */
+    /* --shades-light: #f5f6f3; */
+    /* --accent-light: #ea8069; */
+    /* --main-brand: #9899a2; */
+    /* --accent-dark: #bf4c57; */
+    /* --shades-dark: #3d3e43; */
+
+    /* COLOR SCHEME OPTION 2 */
+    --shades-light: #ebe9e7;
+    --accent-light: #889da4;
+    --main-brand: #5d628f;
+    --accent-dark: #5b72a6;
+    --shades-dark: #1c1f2d;
+}
+
+.lora-regular {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.raleway-regular {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
 *,
 ::before,
 ::after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+body {
+    font-family: Lora, serif;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media only screen and (max-width: 700px) {
+    .mobile-only {
+        display: inline-block;
+    }
 }
