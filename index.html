@@ -11,15 +11,40 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
             rel="stylesheet" />
+        <script src="script.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+        <script>
+            $(document).ready(function () {
+                // console.log("Page has loaded");
+                const max = 200;
+                const description = $(".project-description>p").text();
+                if (description.length > max) {
+                    let subStr = description.substring(0, max);
+                    let hiddenStr = description.substring(max, description.length);
+                    $(".readMore").html(`...<a href="javascript:void(0);" class="link">Read more</a><span class="addText">${hiddenStr}</span>`)
+                }
+
+                $(".readMore").click(function() {
+                    $(".readMore").text() == "Read more" ? $(".readMore").text("Read less") : $(".readMore").text("Read more")
+                    // $(".project-description>p").toggle();
+                })
+            });
+        </script>
     </head>
     <body>
         <main>
             <header>
-                <navbar id="navbar">
-                    <h2 class="nav-heading heading" id="nav-header">
-                        EVH | Web Developer
-                    </h2>
-                    <div class="mobile-wrapper">
+                <nav id="navbar">
+                    <div class="nav-left">
+                        <h2 class="nav-heading heading" id="nav-header">
+                            EVH | web developer
+                        </h2>
+                    </div>
+                    <div class="nav-right mobile-wrapper">
                         <i class="fa-solid fa-bars mobile-only"></i>
                         <ul class="no-dec" id="nav-list">
                             <li class="nav-link heading">
@@ -42,7 +67,7 @@
                             </li>
                         </ul>
                     </div>
-                </navbar>
+                </nav>
             </header>
             <section
                 id="welcome-section"
@@ -57,13 +82,14 @@
                         elit. Deleniti quis quaerat hic minima asperiores neque,
                         numquam nostrum nemo quia accusantium qui sapiente
                         pariatur, at consectetur blanditiis sed, delectus
-                        eveniet. Animi? Sit deleniti, quos at numquam, explicabo
+                        eveniet.
                     </p>
                     <p class="text-block">
-                        nulla ducimus provident modi ratione consequatur
-                        architecto ea, incidunt suscipit. Perferendis sint
-                        veritatis, magni voluptates velit repellat
-                        necessitatibus, quaerat labore, minus sit earum optio.
+                        Animi? Sit deleniti, quos at numquam, explicabo nulla
+                        ducimus provident modi ratione consequatur architecto
+                        ea, incidunt suscipit. Perferendis sint veritatis, magni
+                        voluptates velit repellat necessitatibus, quaerat
+                        labore, minus sit earum optio.
                     </p>
                 </div>
             </section>
@@ -77,21 +103,48 @@
                         <h3 class="heading">Project1</h3>
                         <div class="img-container tile-thumb"></div>
                         <div class="project-description">
-                            <p>This is a description of a project.</p>
+                            <p class="readMore">
+                                This is a description of a project. This should
+                                show a read more link.
+                            </p>
+                            <!-- <p>
+                                This is a description of a project.<span
+                                    class="read-more hide"
+                                    id="read-more1"> Read more</span>
+                            </p> -->
                         </div>
                     </div>
                     <div class="project-tile" id="project2">
                         <h3 class="heading">Project2</h3>
                         <div class="img-container tile-thumb"></div>
                         <div class="project-description">
-                            <p>This is a description of a project.</p>
+                            <p class="readMore">
+                                This is a description of a project. Lorem ipsum
+                                dolor sit, amet consectetur adipisicing elit.
+                                Deleniti quis quaerat hic minima asperiores
+                                neque, numquam nostrum nemo quia accusantium qui
+                                sapiente pariatur, at consectetur blanditiis
+                                sed, delectus eveniet.
+                            </p>
+                            <!-- <p>
+                                This is a description of a project.<span
+                                class="read-more hide"
+                                id="read-more1"> Read more</span>
+                            </p> -->
                         </div>
                     </div>
                     <div class="project-tile" id="project3">
                         <h3 class="heading">Project3</h3>
                         <div class="img-container tile-thumb"></div>
                         <div class="project-description">
-                            <p>This is a description of a project.</p>
+                            <p class="readMore">
+                                This is a description of a project.
+                            </p>
+                            <!-- <p>
+                                This is a description of a project.<span
+                                    class="read-more hide"
+                                    id="read-more1"> Read more</span>
+                            </p> -->
                         </div>
                     </div>
                 </div>
@@ -108,19 +161,27 @@
                                 class="contact-link1"
                                 id="profile-link"
                                 target="_blank"
-                                ><span class="sr-only">GitHub</span><i class="fa-brands fa-github"></i></a
-                            >
+                                ><span class="sr-only">GitHub</span
+                                ><i class="fa-brands fa-github"></i
+                            ></a>
                         </li>
                         <li class="contact-link heading">
                             <a class="contact-link2" target="_blank"
-                                ><span class="sr-only">LinkedIn</span><i class="fa-brands fa-linkedin"></i></a
-                            >
+                                ><span class="sr-only">LinkedIn</span
+                                ><i class="fa-brands fa-linkedin"></i
+                            ></a>
                         </li>
                         <li class="contact-link heading">
-                            <a class="contact-link3" target="_blank"><span class="sr-only">Codepen</span><i class="fa-brands fa-codepen"></i></a>
+                            <a class="contact-link3" target="_blank"
+                                ><span class="sr-only">Codepen</span
+                                ><i class="fa-brands fa-codepen"></i
+                            ></a>
                         </li>
                         <li class="contact-link heading">
-                            <a class="contact-link4" target="_blank"><span class="sr-only">Threads</span><i class="fa-brands fa-threads"></i></a>
+                            <a class="contact-link4" target="_blank"
+                                ><span class="sr-only">Threads</span
+                                ><i class="fa-brands fa-threads"></i
+                            ></a>
                         </li>
                     </ul>
                 </div>
