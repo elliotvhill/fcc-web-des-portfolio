@@ -20,6 +20,19 @@
     --shades-dark: #1c1f2d;
 }
 
+span[class~="sr-only"] {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    width: 1px !important;
+    position: absolute !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    padding: 0 !important;
+    margin: -1px !important;
+}
+
 .lora-regular {
     font-family: "Lora", serif;
     font-optical-sizing: auto;
@@ -40,10 +53,37 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    border: 1px solid black;
 }
 
 body {
+    font-family: Raleway, sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.heading {
     font-family: Lora, serif;
+}
+
+.contact-link {
+    font-size: 2.5rem;
+}
+
+.no-dec {
+    list-style-type: none;
+}
+
+.tile-thumb {
+    width: 320px;
+    height: 240px;
+    background-color: #889da4;
 }
 
 .mobile-only {
