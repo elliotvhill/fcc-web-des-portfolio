@@ -19,28 +19,30 @@
             referrerpolicy="no-referrer"></script>
         <script>
             $(document).ready(function () {
-                // $(".project-description>p").each(function() {
+                $(".project-description>p").each(function () {
+                    const maxChars = 100;
+                    let content = $(this).text();
+                    console.log(content);
 
-                // })
-                const maxChars = 150;
-                const content = $(".readMore").text();
+                        if (content.length > maxChars) {
+                            let shownStr = content.substr(0, maxChars);
+                            let hiddenStr = content.substr(maxChars - content.length);
+                            let html = `${shownStr}<span class="truncated">... </span><span class="truncated" style="display:none">${hiddenStr}</span><a class="read-more" href="#">Read more</a>`;
+                            $(this).empty().append(html);
+                        }
+                    })
 
-                if (content.length > maxChars) {
-                    let shownStr = content.substr(0, maxChars);
-                    let hiddenStr = content.substr(maxChars - content.length);
-                    let html = `${shownStr}<span class="truncated">... </span><span class="truncated" style="display:none">${hiddenStr}</span><a class="read-more" href="#">Read more</a>`;
-                    $(".readMore").html(`<p>${html}</p>`);
-                }
-
-                $(".read-more").click(function (e) {
-                    e.preventDefault();
-                    $(".read-more").text() == "Read more"
-                        ? $(".read-more").text("Read less")
-                        : $(".read-more").text("Read more");
-                    $(".readMore .truncated ").toggle();
+                    $(".read-more").click(function (e) {
+                        e.preventDefault();
+                        if ($(".read-more").text() == "Read more") {
+                            $(".read-more").innerText("Read less");
+                        }
+                        // $(".read-more").text() == "Read more"
+                        //     ? $(".read-more").text("Read less")
+                        //     : $(".read-more").text("Read more");
+                        $(".readMore .truncated ").toggle();
                 });
             });
-
         </script>
     </head>
     <body>
@@ -127,12 +129,11 @@
                         <div class="img-container tile-thumb"></div>
                         <div class="project-description">
                             <p class="readMore">
-                                This is a description of a project. Lorem ipsum
-                                dolor sit, amet consectetur adipisicing elit.
-                                Deleniti quis quaerat hic minima asperiores
-                                neque, numquam nostrum nemo quia accusantium qui
-                                sapiente pariatur, at consectetur blanditiis
-                                sed, delectus eveniet.
+                                Lorem ipsum dolor sit, amet consectetur
+                                adipisicing elit. Deleniti quis quaerat hic
+                                minima asperiores neque, numquam nostrum nemo
+                                quia accusantium qui sapiente pariatur, at
+                                consectetur blanditiis sed, delectus eveniet.
                             </p>
                             <!-- <p>
                                 This is a description of a project.<span
