@@ -19,20 +19,28 @@
             referrerpolicy="no-referrer"></script>
         <script>
             $(document).ready(function () {
-                // console.log("Page has loaded");
-                const max = 200;
-                const description = $(".project-description>p").text();
-                if (description.length > max) {
-                    let subStr = description.substring(0, max);
-                    let hiddenStr = description.substring(max, description.length);
-                    $(".readMore").html(`...<a href="javascript:void(0);" class="link">Read more</a><span class="addText">${hiddenStr}</span>`)
+                // $(".project-description>p").each(function() {
+
+                // })
+                const maxChars = 150;
+                const content = $(".readMore").text();
+
+                if (content.length > maxChars) {
+                    let shownStr = content.substr(0, maxChars);
+                    let hiddenStr = content.substr(maxChars - content.length);
+                    let html = `${shownStr}<span class="truncated">... </span><span class="truncated" style="display:none">${hiddenStr}</span><a class="read-more" href="#">Read more</a>`;
+                    $(".readMore").html(`<p>${html}</p>`);
                 }
 
-                $(".readMore").click(function() {
-                    $(".readMore").text() == "Read more" ? $(".readMore").text("Read less") : $(".readMore").text("Read more")
-                    // $(".project-description>p").toggle();
-                })
+                $(".read-more").click(function (e) {
+                    e.preventDefault();
+                    $(".read-more").text() == "Read more"
+                        ? $(".read-more").text("Read less")
+                        : $(".read-more").text("Read more");
+                    $(".readMore .truncated ").toggle();
+                });
             });
+
         </script>
     </head>
     <body>
