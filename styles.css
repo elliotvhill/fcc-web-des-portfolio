@@ -196,13 +196,7 @@ a:active {
     width: 22vw;
     box-shadow: 0px 0px 20px 2px var(--accent-light);
     position: relative;
-}
-
-img.project-thumb {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+    border-radius: 5px;
 }
 
 .overlay {
@@ -217,6 +211,7 @@ img.project-thumb {
     padding: 1rem;
     text-align: center;
     font-family: Raleway, sans-serif;
+    border-radius: 5px 5px 0 0;
 }
 
 .project-tile:hover .overlay {
@@ -226,6 +221,14 @@ img.project-thumb {
 .project-tile:hover {
     transform: scale(1.05);
     transition: transform 0.5s ease-in-out 2ms;
+}
+
+img.project-thumb {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
 }
 
 .mobile-only {
