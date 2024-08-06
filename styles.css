@@ -114,13 +114,31 @@ nav {
     text-transform: uppercase;
 }
 
-section {
-    max-width: 70vw;
-    margin: 2rem;
-}
-
 .heading {
     font-family: Lora, serif;
+}
+
+h1.heading.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    min-height: 30vh;
+    font-size: 8vw;
+    text-wrap: nowrap;
+}
+
+.section-heading:not(h1) {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.text-block {
+    max-width: 70vw;
+    margin: 1rem auto;
+    padding: 0.5rem 1rem;
+    line-height: 1.5;
 }
 
 .contact {
@@ -145,12 +163,28 @@ section {
     list-style-type: none;
 }
 
-a, a:visited, a:active {
+a,
+a:visited,
+a:active {
     color: inherit;
 }
 
-/* .projects-gallery {
-} */
+.projects-gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 80vw;
+    margin: 0 auto;
+    padding: 1.25rem 0.75rem;
+}
+
+.projects-gallery::after {
+    content: "";
+    width: 350px;
+}
 
 .project-tile {
     display: flex;
@@ -160,7 +194,7 @@ a, a:visited, a:active {
     height: 20vw;
     width: 22vw;
     background-color: #889da4;
-    margin: 2rem 0;
+    /* margin: 2rem 0; */
 }
 
 .tile-thumb {
@@ -176,7 +210,6 @@ a, a:visited, a:active {
 .hide {
     display: none;
 }
-
 
 @media only screen and (max-width: 700px) {
     .mobile-only {
