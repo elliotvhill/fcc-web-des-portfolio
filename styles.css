@@ -163,6 +163,10 @@ h1.heading.main {
     list-style-type: none;
 }
 
+.em {
+    font-weight: 600;
+}
+
 a,
 a:visited,
 a:active {
@@ -194,13 +198,33 @@ a:active {
     height: 20vw;
     width: 22vw;
     background-color: #889da4;
-    /* margin: 2rem 0; */
+    box-shadow: 0px 0px 8px var(--shades-dark);
+}
+
+.project-tile > a.heading {
+    text-decoration: none;
+}
+
+.project-tile > .heading {
+    color: var(--shades-light);
+    text-align: center;
+}
+
+.project-tile:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s ease-in-out 2ms;
 }
 
 .tile-thumb {
     max-width: 320px;
     max-height: 240px;
     background-color: #889da4;
+}
+
+.project-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .mobile-only {
